@@ -3,6 +3,12 @@ let COUNTRY = "us"
 let CateGory = ""
 let topButton = document.querySelectorAll(".menus button")
 let newsList = []
+let searchBar = document.getElementById("input-bar")
+let hamBerger = document.getElementById("hamBerger")
+let submenuBar = document.getElementById("submenuBar")
+let exit = document.getElementById("X")
+let subButton = document.querySelectorAll("#submenuButton button")
+
 topButton.forEach((menu)=>
     menu.addEventListener("click",async (event)=>{
         if(event){
@@ -85,3 +91,25 @@ const coolTime = (news) => {
 getLatestNews()
 
 
+const OnOf= () => {
+    if(searchBar.style.display == "inline"){
+        searchBar.style.display = "none" 
+    } else{
+        searchBar.style.display = "inline"
+    }
+}
+hamBerger.addEventListener("click",()=>submenuBar.style.left = "0%")
+exit.addEventListener("click",()=>submenuBar.style.left = "-100%")
+
+
+subButton.forEach((menu)=>
+    menu.addEventListener("click",async (event)=>{
+        if(event){
+            CateGory = event.target.id
+        }
+        console.log(CateGory)
+        const url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=${COUNTRY}&category=${CateGory}&apiKey=${apiKey}`)
+        everyTime(url)
+        console.log("카테고리")
+        submenuBar.style.left = "-100%"
+    }))
