@@ -64,9 +64,6 @@
     transition: 0.3s;
 }
 .searchButton{
-    position: absolute;
-    top: 1vh;
-    left: 17.5vw;
     border: none;
     width: 2.1em;
     height: 2.1em;
@@ -123,13 +120,17 @@
 }
 
 @media screen and (max-width:62rem) {
+    .search{
+        left: 23vw;
+    }
     #search-input{
-        display: none;
+        width: 140px;
     }
     .gumButton{
-        display: none;
+        width: 50px;
     }
     .head-line{
+        
         margin-top: 4em;
     }
     .menus{
@@ -138,14 +139,10 @@
     .menus button{
         display: none;
     }
-    .searchButton{
-        top: 1.3vh;
-        left: 14vw;
-    }
     .under-line{
         position: absolute;
         top: 1.3vh;
-        left: 5vw;
+        left: 7vw;
     }
     .under-line div{
         border-bottom: 5px solid black;
